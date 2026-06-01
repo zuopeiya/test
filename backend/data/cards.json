@@ -1,0 +1,108 @@
+{
+  "linzhixing": {
+    "slug": "linzhixing",
+    "editPasswordHash": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+    "profile": {
+      "name": "林知行",
+      "title": "全栈产品工程师",
+      "location": "上海 · 远程协作",
+      "tagline": "把复杂想法做成清晰、可靠、好用的数字产品。",
+      "summary": "专注于产品原型、前后端工程、自动化流程和数据可视化。擅长把模糊需求拆成可落地的系统，并用简洁界面承载高密度信息。",
+      "avatarInitials": "LZ",
+      "availability": "接受 2026 年 Q3 项目咨询",
+      "contacts": [
+        {
+          "type": "Email",
+          "label": "hello@example.com",
+          "href": "mailto:hello@example.com"
+        },
+        {
+          "type": "Phone",
+          "label": "+86 138 0000 0000",
+          "href": "tel:+8613800000000"
+        },
+        {
+          "type": "WeChat",
+          "label": "lin-product",
+          "href": "#wechat"
+        }
+      ],
+      "links": [
+        {
+          "label": "作品集",
+          "href": "https://example.com/portfolio"
+        },
+        {
+          "label": "GitHub",
+          "href": "https://github.com/example"
+        },
+        {
+          "label": "LinkedIn",
+          "href": "https://linkedin.com/in/example"
+        }
+      ],
+      "skills": [
+        "产品策略",
+        "React / Vue",
+        "Node.js API",
+        "数据看板",
+        "自动化工作流",
+        "体验设计"
+      ],
+      "services": [
+        {
+          "name": "MVP 快速搭建",
+          "detail": "从需求梳理到上线验证，适合早期产品和内部工具。"
+        },
+        {
+          "name": "前后端架构咨询",
+          "detail": "梳理接口边界、权限模型、数据结构和部署路径。"
+        },
+        {
+          "name": "效率系统定制",
+          "detail": "把重复流程自动化，接入表格、文档、通知和业务系统。"
+        }
+      ],
+      "stats": [
+        {
+          "value": "8+",
+          "label": "年产品工程经验"
+        },
+        {
+          "value": "35",
+          "label": "交付项目"
+        },
+        {
+          "value": "4.9",
+          "label": "客户平均评分"
+        }
+      ]
+    },
+    "createdAt": "2026-06-01T02:49:32.621Z",
+    "updatedAt": "2026-06-01T02:49:32.622Z"
+  },
+  "林知行": {
+    "slug": "林知行",
+    "editPasswordHash": "bcb15f821479b4d5772bd0ca866c00ad5f926e3580720659cc80d39c9d09802a",
+    "profile": {
+      "name": "林知行",
+      "title": "全栈产品工程师",
+      "location": "上海 · 远程协作",
+      "tagline": "把复杂想法做成清晰、可靠、好用的数字产品。",
+      "summary": "前端已加载，后端未连接时会显示这份备用资料。",
+      "avatarInitials": "林知",
+      "availability": "离线预览模式",
+      "contacts": [],
+      "links": [],
+      "skills": [
+        "产品策略",
+        "前端界面",
+        "Node.js API"
+      ],
+      "services": [],
+      "stats": []
+    },
+    "createdAt": "2026-06-01T03:35:35.520Z",
+    "updatedAt": "2026-06-01T03:35:35.520Z"
+  }
+}

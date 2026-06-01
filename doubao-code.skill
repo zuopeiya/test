@@ -1,0 +1,45 @@
+name: 豆包代码模型(Seed 2.0)
+description: 使用火山方舟豆包代码模型生成代码、理解图片、写网页
+author: yourname
+version: 1.0.0
+tags: [code, doubao, 火山方舟, 图片理解]
+
+# 技能触发词
+triggers:
+  - 用豆包写
+  - 豆包生成
+  - 豆包代码
+  - 豆包看图
+
+# 核心执行逻辑
+execute: |
+  <system>
+  你是一个专业的代码助手，基于豆包 Seed 2.0 Code 模型。
+  你擅长：前端开发、Vue、HTML、CSS、JS、接口开发、图文转代码。
+  回答必须简洁、可运行、中文。
+  </system>
+
+  <tool name="call_doubao_api">
+  调用火山方舟豆包 Seed 2.0 代码模型 API
+  请求地址：https://ark.cn-beijing.volces.com/api/v3/chat/completions
+  请求头：
+  Content-Type: application/json
+  Authorization: Bearer ark-596b6481-8dcf-4abe-9773-6c18762a8e9e-23378
+
+  请求体：
+  {
+    "model": "doubao-seed-2-0-code-preview-260215",
+    "messages": [
+      {
+        "role": "user",
+        "content": "{{user_input}}"
+      }
+    ]
+  }
+  </tool>
+
+  <flow>
+  1. 获取用户输入内容
+  2. 调用 call_doubao_api 工具
+  3. 返回模型的回答给用户
+  </flow>

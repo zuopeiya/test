@@ -1,0 +1,23 @@
+{
+  "name": "personal-card-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A separated frontend and backend personal business card website.",
+  "scripts": {
+    "start:backend": "node backend/server.js",
+    "start:frontend": "node frontend/dev-server.js",
+    "check": "node backend/server.js --check && node frontend/dev-server.js --check"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^9.1.0"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^3.1.10"
+  },
+  "keywords": [
+    "personal-card",
+    "frontend",
+    "backend"
+  ],
+  "license": "MIT"
+}

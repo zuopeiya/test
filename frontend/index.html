@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>个人名片 | Personal Card</title>
+    <link rel="stylesheet" href="/styles.css?v=20260601-card-platform" />
+  </head>
+  <body>
+    <main class="shell">
+      <nav class="topbar" aria-label="站点导航">
+        <a class="brand" href="/">个人名片</a>
+        <div class="nav-actions">
+          <a class="nav-link" href="/u/linzhixing">示例名片</a>
+          <a class="nav-button" href="/create">创建我的名片</a>
+        </div>
+      </nav>
+
+      <section class="home-view" id="home-view" hidden>
+        <div class="home-hero">
+          <p class="eyebrow">开放创建 · 公开访问</p>
+          <h1>创建一张简洁、专业、可分享的个人名片。</h1>
+          <p>
+            填写资料后即可生成专属链接，任何人都能访问你的公开名片。页面沿用当前这套清爽纵向布局。
+          </p>
+          <div class="home-actions">
+            <a class="primary-action" href="/create">创建我的名片</a>
+            <a class="secondary-action" href="/u/linzhixing">查看示例</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-view" id="form-view" hidden>
+        <div class="form-head">
+          <p class="eyebrow" id="form-eyebrow">创建名片</p>
+          <h1 id="form-title">创建我的个人名片</h1>
+          <p id="form-description">生成后会得到一个公开访问地址，编辑时需要填写编辑密码。</p>
+        </div>
+
+        <form class="card-form" id="card-form">
+          <div class="form-grid">
+            <label>
+              <span>访问路径</span>
+              <input id="slug-input" name="slug" placeholder="例如 linzhixing" autocomplete="off" />
+            </label>
+            <label>
+              <span>编辑密码</span>
+              <input id="password-input" name="editPassword" type="password" placeholder="至少 6 位" required />
+            </label>
+            <label>
+              <span>姓名</span>
+              <input name="name" required />
+            </label>
+            <label>
+              <span>职位</span>
+              <input name="title" required />
+            </label>
+            <label>
+              <span>所在地</span>
+              <input name="location" />
+            </label>
+            <label>
+              <span>状态</span>
+              <input name="availability" placeholder="例如 接受项目咨询" />
+            </label>
+            <label class="wide">
+              <span>个人签名</span>
+              <input name="tagline" required />
+            </label>
+            <label class="wide">
+              <span>简介</span>
+              <textarea name="summary" rows="4"></textarea>
+            </label>
+            <label class="wide">
+              <span>技能标签</span>
+              <input name="skills" placeholder="用逗号分隔，例如 产品策略, React, Node.js" />
+            </label>
+            <label class="wide">
+              <span>联系方式</span>
+              <textarea name="contacts" rows="3" placeholder="每行一个：类型 | 显示文本 | 链接"></textarea>
+            </label>
+            <label class="wide">
+              <span>外部链接</span>
+              <textarea name="links" rows="3" placeholder="每行一个：名称 | 链接"></textarea>
+            </label>
+            <label class="wide">
+              <span>服务项目</span>
+              <textarea name="services" rows="4" placeholder="每行一个：项目名称 | 项目说明"></textarea>
+            </label>
+            <label class="wide">
+              <span>数据指标</span>
+              <textarea name="stats" rows="3" placeholder="每行一个：数值 | 标签，例如 8+ | 年经验"></textarea>
+            </label>
+          </div>
+
+          <div class="form-actions">
+            <button class="primary-action" type="submit" id="submit-button">保存名片</button>
+            <a class="secondary-action" href="/">返回首页</a>
+          </div>
+          <p class="form-message" id="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="profile" id="profile-view" aria-label="个人名片" hidden>
+        <div class="cover" aria-hidden="true">
+          <div class="cover-grid"></div>
+        </div>
+
+        <div class="identity">
+          <div class="avatar" id="avatar">--</div>
+          <div class="identity-main">
+            <p class="eyebrow" id="availability">加载资料中</p>
+            <h1 id="name">个人名片</h1>
+            <p class="role" id="title"></p>
+          </div>
+        </div>
+
+        <p class="tagline" id="tagline"></p>
+        <p class="summary" id="summary"></p>
+
+        <div class="actions" id="contacts"></div>
+        <div class="link-row" id="links"></div>
+        <div class="owner-actions" id="owner-actions"></div>
+      </section>
+
+      <aside class="panel" id="panel-view" aria-label="专业信息" hidden>
+        <section class="stats" id="stats"></section>
+
+        <section class="block">
+          <div class="block-head">
+            <h2>能力标签</h2>
+            <span id="location"></span>
+          </div>
+          <div class="chips" id="skills"></div>
+        </section>
+
+        <section class="block">
+          <h2>可合作事项</h2>
+          <div class="services" id="services"></div>
+        </section>
+      </aside>
+
+      <section class="empty-state" id="empty-view" hidden>
+        <p class="eyebrow">没有找到名片</p>
+        <h1>这个访问地址暂时不存在。</h1>
+        <p>你可以返回首页创建一张新的个人名片。</p>
+        <a class="primary-action" href="/create">创建我的名片</a>
+      </section>
+    </main>
+
+    <template id="error-template">
+      <div class="notice">
+        <strong>资料暂时没有加载成功</strong>
+        <span>请确认后端服务已在 http://localhost:4000 启动。</span>
+      </div>
+    </template>
+
+    <script src="/app.js?v=20260601-card-platform"></script>
+  </body>
+</html>
