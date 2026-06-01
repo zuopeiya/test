@@ -1,5 +1,6 @@
 const http = require("node:http");
 const fs = require("node:fs/promises");
+const fsSync = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
 
@@ -191,6 +192,24 @@ const requestHandler = async (req, res) => {
   const cardMatch = url.pathname.match(/^\/api\/cards\/([^/]+)$/);
 
   try {
+    // ====================== 我加的代码：返回前端页面 ======================
+    if (req.method === "GET") {
+      const frontendPath = path.join(__dirname, "../frontend");
+      let filePath = path.join(frontendPath, url.pathname === "/" ? "index.html" : url.pathname);
+
+      if (fsSync.existsSync(filePath) && fsSync.statSync(filePath).isFile()) {
+        const ext = path.extname(filePath);
+        let contentType = "text/html; charset=utf-8";
+        if (ext === ".css") contentType = "text/css; charset=utf-8";
+        if (ext === ".js") contentType = "application/javascript; charset=utf-8";
+
+        res.writeHead(200, { "Content-Type": contentType });
+        fsSync.createReadStream(filePath).pipe(res);
+        return;
+      }
+    }
+    // ====================================================================
+
     if (req.method === "GET" && url.pathname === "/api/health") {
       sendJson(res, 200, { ok: true, service: "personal-card-api" });
       return;
